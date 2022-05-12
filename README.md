@@ -195,10 +195,14 @@ endmodule
 1. 1. SR FLIPFLOP:
 ![output](./timingSR.png)
 2. D FLIPFLOP:
+
 ![output](./timingD.png)
 3. JK FLIPFLOP:
+
 ![output](./timingJK.png)
 4. T FLIPFLOP:
+
+
 ![output](./timingT.png)
 
 
