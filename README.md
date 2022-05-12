@@ -102,23 +102,104 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+1. Open Quartus II and select new project and choose the file location.
+2. Module Declaration. Module should have the file name.
+3. Declare Inputs and outputs.
+4. Use assign declaration and wire to define the functionality of logic circuits.
+5. End the program with endmodule.
+6. Run the program and choose RTL viewer to get RTL realization.
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: ANITHA P
+RegisterNumber:  212221240004
 */
+```
+1.SR FLIPFLOP:
+module sr(s,r,clk,q,qbar);
+input s,r,clk;
+output q,qbar;
+wire x,y;
+nand (x,s,clk);
+nand(y,r,clk);
+nand (q,x,qbar);
+nand (qbar,y,q);
+endmodule
+```
+```
+2. D FLIPFLOP:
+module df(d,clk,q,qbar);
+input d,clk;
+output q,qbar;
+assign dbar = ~d;
+wire x,y;
+nand (x,d,clk);
+nand (y,dbar,clk);
+nand (q,x,qbar);
+nand (qbar,y,q);
+endmodule  
+```
+```
+3.JK FLIPFLOP:
+module jk(j,k,clk,q,qbar);
+input j,k,clk;
+output q,qbar;
+wire p,s;
+nand(p,j,clk,qbar);
+nand(s,k,clk,q);
+nand(q,p,qbar);
+nand(qbar,s,q);
+endmodule 
+
+```
+
+```
+4. T FLIPFLOP:
+module tf(t,clk,q,qbar);
+input t,clk;
+output q,qbar;
+wire x,y;
+nand (x,t,clk,qbar);
+nand (y,clk,t,q);
+nand (q,x,qbar);
+nand (qbar,y,q);
+endmodule
+```
 
 
 
 
 
 
-### RTL LOGIC FOR FLIPFLOPS 
+### RTL LOGIC FOR FLIPFLOPS :
+1. SR FLIPFLOP:
+![OUTPUT](./exp5%20de%20ss1.png)
+
+2. D FLIPFLOP:
+![OUTPUT](./exp%20de%20ss3.png)
+
+
+3. JK FLIPFLOP:
+![output](./exp%20de%20ss2.png)
+
+
+4. T FLIPFLOP:
+![OUTPUT](./exp5%20de%20ss4.png)
+
+
+### TIMING DIGRAMS FOR FLIP FLOPS :
+
+1. 1. SR FLIPFLOP:
+![output](./timingSR.png)
+2. D FLIPFLOP:
+![output](./timingD.png)
+3. JK FLIPFLOP:
+![output](./timingJK.png)
+4. T FLIPFLOP:
+![output](./timingT.png)
 
 
 
@@ -126,15 +207,5 @@ RegisterNumber:
 
 
 
-
-
-### TIMING DIGRAMS FOR FLIP FLOPS 
-
-
-
-
-
-
-
-
-### RESULTS 
+### RESULTS :
+All the flipflops are implementde using verilog and their functionality has been validated using their functional tables.
